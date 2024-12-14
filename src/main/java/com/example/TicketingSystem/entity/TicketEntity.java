@@ -38,6 +38,14 @@ public class TicketEntity {
         this.user = user;
     }
 
+    public Integer getId(){
+        return id;
+    }
+
+    public void setId(Integer id){
+        this.id = id;
+    }
+
     public Integer getAmount(){
         return amount;
     }

@@ -10,14 +10,14 @@ import com.example.TicketingSystem.repository.TicketRepository;
 import com.example.TicketingSystem.repository.UserRepository;
 
 @Service
-public class EmployeeService {
+public class AccountService {
 
     private final TicketRepository ticketRepository;
 
     private final UserRepository usertRepository;
 
     @Autowired
-    public EmployeeService(TicketRepository ticketRepository, UserRepository userRepository) {
+    public AccountService(TicketRepository ticketRepository, UserRepository userRepository) {
         this.ticketRepository = ticketRepository;
         this.usertRepository = userRepository;
     }
