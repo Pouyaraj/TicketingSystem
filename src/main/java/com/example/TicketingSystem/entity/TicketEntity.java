@@ -29,9 +29,9 @@ public class TicketEntity {
 
     @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
-    private UserEntity user;
+    private AccountEntity user;
 
-    public TicketEntity(Integer amount, String description, String status, UserEntity user){
+    public TicketEntity(Integer amount, String description, String status, AccountEntity user){
         this.amount = amount;
         this.description = description;
         this.status = "pending";
