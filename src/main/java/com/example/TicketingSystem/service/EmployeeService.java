@@ -1,5 +1,35 @@
 package com.example.TicketingSystem.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.TicketingSystem.entity.UserEntity;
+import com.example.TicketingSystem.repository.TicketRepository;
+import com.example.TicketingSystem.repository.UserRepository;
+
+@Service
 public class EmployeeService {
-    
+
+    private final TicketRepository ticketRepository;
+
+    private final UserRepository usertRepository;
+
+    @Autowired
+    public EmployeeService(TicketRepository ticketRepository, UserRepository userRepository) {
+        this.ticketRepository = ticketRepository;
+        this.usertRepository = userRepository;
+    }
+
+    public UserEntity register(UserEntity user) {
+        // Check if the user with the given username already exists
+        UserEntity existingAccount = usertRepository.findByUsername(user.getUsername());
+
+        // If the user exists, throw an exception to prevent registration
+        if (existingAccount != null) {
+            throw new IllegalArgumentException("Username already exists. Please choose a different username.");
+        }
+
+        // Save the new user to the database if it doesn't exist
+        return usertRepository.save(user);
+    }
 }
