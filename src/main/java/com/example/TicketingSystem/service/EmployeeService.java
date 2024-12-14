@@ -1,5 +1,7 @@
 package com.example.TicketingSystem.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +33,15 @@ public class EmployeeService {
 
         // Save the new user to the database if it doesn't exist
         return usertRepository.save(user);
+    }
+
+    public UserEntity login(UserEntity user) {
+        // Find user by username
+        Optional<UserEntity> existingUser = Optional.ofNullable(usertRepository.findByUsername(user.getUsername()));
+
+        if (existingUser.isPresent() && existingUser.get().getPassword().equals(user.getPassword())) {
+            return existingUser.get();
+        }
+        throw new IllegalArgumentException("Invalid username or password!");
     }
 }
