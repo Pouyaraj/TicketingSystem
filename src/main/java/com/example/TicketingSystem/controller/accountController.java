@@ -48,7 +48,7 @@ public class AccountController {
     
         try {
             AccountEntity verifiedAccount = accountService.login(user);
-            return ResponseEntity.ok(verifiedAccount); // Includes firstName and lastName in the response
+            return ResponseEntity.ok(verifiedAccount);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(401).body("Error: Invalid username or password.");
         }
