@@ -28,14 +28,22 @@ public class TicketEntity {
     private String status = "pending";
 
     @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
+    @JoinColumn(name="submitted_by", nullable=false)
     private AccountEntity user;
 
+    public TicketEntity(){
+
+    }
+    
     public TicketEntity(Integer amount, String description, String status, AccountEntity user){
         this.amount = amount;
         this.description = description;
         this.status = "pending";
         this.user = user;
+    }
+
+    public AccountEntity getUser(){
+        return user;
     }
 
     public Integer getId(){
