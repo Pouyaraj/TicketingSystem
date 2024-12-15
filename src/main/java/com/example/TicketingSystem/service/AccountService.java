@@ -31,7 +31,11 @@ public class AccountService {
             throw new IllegalArgumentException("Username already exists. Please choose a different username.");
         }
 
-        // Save the new user to the database if it doesn't exist
+        if (user.getRole() == null || user.getRole().trim().isEmpty()) {
+            user.setRole("Employee");
+        }
+
+        // Save the new user
         return usertRepository.save(user);
     }
 
