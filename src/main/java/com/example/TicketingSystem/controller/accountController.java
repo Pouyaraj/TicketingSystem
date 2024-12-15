@@ -12,11 +12,11 @@ import com.example.TicketingSystem.service.AccountService;
 
 @RestController
 @RequestMapping
-public class AccountController {
+public class accountController {
     private final AccountService accountService;
 
     @Autowired
-    public AccountController(AccountService accountService){
+    public accountController(AccountService accountService){
         this.accountService = accountService;
     }
 
