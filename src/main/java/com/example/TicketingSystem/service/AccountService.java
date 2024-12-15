@@ -23,7 +23,6 @@ public class AccountService {
     }
 
     public AccountEntity register(AccountEntity user) {
-        // Check if the user with the given username already exists
         AccountEntity existingAccount = usertRepository.findByUsername(user.getUsername());
 
         // If the user exists, throw an exception to prevent registration
