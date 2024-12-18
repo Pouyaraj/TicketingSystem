@@ -2,6 +2,7 @@ package com.example.TicketingSystem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import com.example.TicketingSystem.service.AccountService;
 
 @RestController
 @RequestMapping
+@CrossOrigin(origins = "http://localhost:3000")
 public class accountController {
     private final AccountService accountService;
 
