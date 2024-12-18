@@ -5,77 +5,63 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="ticket")
+@Table(name = "ticket")
 public class TicketEntity {
-    @Column(name="id")
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name="amount", nullable=false)
+    @Column(name = "amount", nullable = false)
     private Integer amount;
 
-    @Column(name="description", nullable=false)
+    @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name="status", nullable=false)
-    private String status = "pending";
+    @Column(name = "status", nullable = false)
+    private String status = "Pending";
 
-    @ManyToOne
-    @JoinColumn(name="submitted_by", nullable=false)
-    private AccountEntity user;
+    public TicketEntity() {}
 
-    public TicketEntity(){
-
-    }
-    
-    public TicketEntity(Integer amount, String description, String status, AccountEntity user){
+    public TicketEntity(Integer amount, String description, String status) {
         this.amount = amount;
         this.description = description;
-        this.status = "pending";
-        this.user = user;
-    }
-
-    public AccountEntity getUser(){
-        return user;
-    }
-
-    public Integer getId(){
-        return id;
-    }
-
-    public void setId(Integer id){
-        this.id = id;
-    }
-
-    public Integer getAmount(){
-        return amount;
-    }
-
-    public void setAmount(Integer amount){
-        this.amount = amount;
-    }
-
-    public String  getDescription(){
-        return description;
-    }
-
-    public void setDescription(String description){
-        this.description = description;
-    }
-
-    public String getStatus(){
-        return status;
-    }
-
-    public void setStatus(String status){
         this.status = status;
     }
 
+    // Getters and setters
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
+

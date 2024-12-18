@@ -10,8 +10,8 @@ function HomeFile() {
         <h2 className='content'>Welcome to The Ticketing System</h2>
         </>
       <div className="button-container">
-        <button className="button" onClick={() => navigate('/login')}>Login to Your Account</button>
-        <button className="button" onClick={() => navigate('/register')}>Create a New Account</button>
+        <button id="login-button" onClick={() => navigate('/login')}>Login to Your Account</button>
+        <button id="register-button" onClick={() => navigate('/register')}>Create a New Account</button>
       </div>
     </div>
   );
