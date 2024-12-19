@@ -1,8 +1,11 @@
 package com.example.TicketingSystem.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,4 +42,11 @@ public class TicketController {
             return ResponseEntity.status(500).body("Error: " + e.getMessage());
         }
     }
+
+    @GetMapping("/get-tickets")
+    public ResponseEntity<List<TicketEntity>> getTickets() {
+        List<TicketEntity> tickets = ticketService.getTickets();
+        return ResponseEntity.ok(tickets);
+    }
+    
 }

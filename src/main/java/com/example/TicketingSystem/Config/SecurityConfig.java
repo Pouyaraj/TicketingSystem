@@ -13,7 +13,7 @@ public class SecurityConfig {
         http
             .csrf().disable() 
             .authorizeRequests()
-                .requestMatchers("/register", "/login", "/tickets/submit").permitAll() // Allow unauthenticated access to these endpoints
+                .requestMatchers("/register", "/login", "/tickets/submit, /tickets/get-tickets").permitAll() // Allow unauthenticated access to these endpoints
                 .anyRequest().authenticated() // Require authentication for all other endpoints
             .and()
             .httpBasic(); 
